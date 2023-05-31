@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (TemplateView, FormView,
                                   CreateView, ListView,
-                                  DetailView, UpdateView)
+                                  DetailView, UpdateView,
+                                  DeleteView)
 from classroom.forms import ContactForm
 from classroom.models import Teacher
 
@@ -42,4 +43,9 @@ class TeacherUpdateView(UpdateView):
     # Going to share the modelform.html template
     model = Teacher
     fields = ['last_name']
+    success_url= reverse_lazy("teacher_list")
+
+class TeacherDeleteView(DeleteView):
+    # This is goint to look for model_confirm_delete.html
+    model = Teacher
     success_url= reverse_lazy("teacher_list")
