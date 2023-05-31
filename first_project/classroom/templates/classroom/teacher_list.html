@@ -6,6 +6,7 @@
     {% for teacher in teacher_list%}
     <li>
         <a href="/classroom/teacher_detail/{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+        <a href="/classroom/teacher_update/{{teacher.id}}">Update</a>
     </li>
     
     {% endfor %}
